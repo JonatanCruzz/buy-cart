@@ -60,14 +60,24 @@ function cart(db, printProducts) {
 
     function addToCart(id, quantity = 1) {
         const itemFinded = cart.find(item => item.id === id);
+        const product = db.find(product => product.id === id);
 
         if (itemFinded) {
-            itemFinded.quantity += quantity;
+            const totalQuantity = itemFinded.quantity + quantity;
+            if (checkStock(id, totalQuantity)) {
+                itemFinded.quantity = totalQuantity;
+            } else {
+                window.alert('No hay stock suficiente');
+            }
         } else {
-            const item = db.find(item => item.id === id);
-            item.quantity = quantity;
-            cart.push(item);
+            if (checkStock(id, quantity)) {
+                const newItem = { ...product, quantity };
+                cart.push(newItem);
+            } else {
+                window.alert('No hay stock suficiente');
+            }
         }
+
         printCart();
     }
 
@@ -121,6 +131,12 @@ function cart(db, printProducts) {
         printCart();
         printProducts();
         window.alert('Gracias por su compra')
+    }
+
+    function checkStock(id, quantity) {
+        const productFinded = db.find(product => product.id === id);
+
+        return productFinded.quantity >= quantity;
     }
 
     printCart()

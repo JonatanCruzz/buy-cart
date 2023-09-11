@@ -30,6 +30,6 @@ cart(db, printProducts);
 3. Realizar el loading (listo)
 4. Realizar el darkmode de la pagina (pendiente)
 5. Un modal con información del producto (y funcionalidad) (pendiente)
-6. Validar el stock de los productos (pendiente)
+6. Validar el stock de los productos (listo)
 7. Persistencia con localStorage (pendiente)
 */
