@@ -19,6 +19,9 @@ function products(products) {
                 <span class="product__price">$${product.price}</span>
                 <span class="product__stock">Disponibles: ${product.quantity}</span>
                 <h3 class="product__title">${product.name}</h3>
+                <button type="button" class="product__btn show-modal" data-id="${product.id}">
+                    <i class='bx bx-info-circle'></i>
+                </button>
             </div>
         </article>
             `;

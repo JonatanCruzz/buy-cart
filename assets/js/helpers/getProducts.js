@@ -1,6 +1,7 @@
 async function getProducts() {
+    const ls = window.localStorage;
 
-    const products = [
+    const products =  JSON.parse(ls.getItem('products')) || [
         {
             id: 1,
             name: "Camiseta de manga corta con cuello redondo",

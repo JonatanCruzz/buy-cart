@@ -1,5 +1,8 @@
+const ls = window.localStorage;
+
 function cart(db, printProducts) {
-    let cart = [];
+    let cart = JSON.parse(ls.getItem('cart')) || [];
+
     //Elementos del DOM
     const productsDOM = document.querySelector(".products__container");
     const notifyDOM = document.querySelector(".notify");
@@ -55,7 +58,7 @@ function cart(db, printProducts) {
         notifyDOM.innerHTML = showItemsCount();
         countDOM.innerHTML = showItemsCount();
         totalDOM.innerHTML = showTotal();
-
+        ls.setItem('cart', JSON.stringify(cart));
     }
 
     function addToCart(id, quantity = 1) {
@@ -97,6 +100,7 @@ function cart(db, printProducts) {
 
     function deleteFromCart(id) {
         cart = cart.filter(item => item.id !== id);
+
         printCart();
     }
 
@@ -131,6 +135,7 @@ function cart(db, printProducts) {
         printCart();
         printProducts();
         window.alert('Gracias por su compra')
+        ls.setItem('products', JSON.stringify(db));
     }
 
     function checkStock(id, quantity) {
@@ -165,6 +170,7 @@ function cart(db, printProducts) {
     checkoutDOM.addEventListener("click", function () {
         checkout();
     });
+
 }
 
 export default cart;
