@@ -5,6 +5,7 @@ import products from "./components/products.js";
 import getProducts from "./helpers/getProducts.js";
 import cart from "./components/cart.js";
 import modal from "./components/modal.js";
+import darkMode from "./components/darkMode.js"
 
 
 /* UI Elements*/
@@ -29,14 +30,6 @@ cart(db, printProducts);
 /* Modal */
 modal(db);
 
+/* Dark Mode*/
+darkMode();
 
-//TO DO:
-/* 
-1. Entregar la maquetación y la lógica vista en los videos (listo)
-2. Animaciones (listo)
-3. Realizar el loading (listo)
-4. Realizar el darkmode de la pagina (pendiente)
-5. Un modal con información del producto (y funcionalidad) (listo)
-6. Validar el stock de los productos (listo)
-7. Persistencia con localStorage (listo)
-*/

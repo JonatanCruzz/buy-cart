@@ -72,14 +72,26 @@ textarea {
 }
 
 body {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1570.cur), auto !important;
+    cursor: default;
     background-color: var(--body-color);
     color: var(--text-color);
     font-family: var(--body-font);
     font-size: var(--normal-font);
     font-weight: var(--font-normal);
     line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+button {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1569.cur), auto !important;
+}
+
+a {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1565.cur), auto !important;
+}
+
+*/
 a {
     text-decoration: none;
 }
@@ -285,6 +297,14 @@ section {
         background-color: var(--bg-color);
         z-index: var(--z-fixed);
         transition: bottom .3s ease-in-out;
+    }
+
+    /* Alinea los iconos de luna y sol junto con los títulos */
+    .nav__menu.show--menu .mode-toggle-button .bx-moon,
+    .nav__menu.show--menu .mode-toggle-button .bx-sun {
+        margin-bottom: 10px;
+        margin-left: 15px;
+        /* Agrega un pequeño espacio entre los iconos y los títulos */
     }
 }
 
@@ -536,6 +556,10 @@ section {
     background-color: var(--primary-color);
 }
 
+.footer__item a {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1567.cur), auto !important;
+}
+
 .footer__bottom {
     text-align: center;
 }
@@ -586,6 +610,10 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btn--close {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1564.cur), auto !important;
 }
 
 .cart__body {
@@ -674,6 +702,7 @@ section {
 }
 
 .btn--buy {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1560.cur), auto !important;
     grid-column: span 4;
     background-color: var(--title-color);
     color: var(--bg-color);
@@ -718,7 +747,7 @@ section {
 
 @media (min-width:1024px) {
 
-    .section-title,
+    .section--title,
     .container {
         margin: 0 auto;
     }
@@ -759,6 +788,7 @@ section {
     border: none;
     outline: none;
     font-size: 2rem;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -805,6 +835,7 @@ section {
     cursor: pointer;
     display: flex;
     align-items: center;
+
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -813,8 +844,187 @@ section {
     color: var(--bg-color);
 }
 
+.product__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product__btn.show-modal {
+    margin-right: 70%;
+}
+
 /* Show modal */
 .show--modal {
     opacity: 1;
     visibility: visible;
 }
+
+/* Ocultar el boton */
+.nav__btn .bx-sun {
+    display: none;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --primary-color-dark: #49e9d9;
+    --body-color: #121212;
+    --text-color: #ffffff;
+    --title-color-dark: #e6e6e6;
+    --bg-color-dark: #1c1919;
+    --card-color-dark: #333333;
+}
+
+.dark-mode .header {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__logo svg {
+    color: var(--primary-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__menu {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__link {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__buttons .nav__btn {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .products__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.dark-mode .cart__body {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer__top {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer__link {
+    background-color: var(--title-color-dark);
+    color: var(--bg-color-dark);
+    transition: background-color .3s ease-in-out;
+}
+
+.dark-mode .footer__link:hover {
+    background-color: var(--primary-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__content {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__btn {
+    background-color: var(--title-color-dark);
+    color: var(--bg-color-dark);
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.dark-mode .product__btn:hover {
+    background-color: var(--primary-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__btn.mode-toggle-button .bx-sun {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__menu .btn--cart i {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__menu .btn--close {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart__footer {
+    background-color: var(--card-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart__btn.btn--close {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .article__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .article--plus,
+.article--minus,
+.remove-from-cart {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__content {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__image {
+    border: 1px solid var(--card-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__price {
+    color: var(--primary-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* End of Dark Mode */

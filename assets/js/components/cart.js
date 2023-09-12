@@ -126,6 +126,11 @@ function cart(db, printProducts) {
     }
 
     function checkout() {
+        if (cart.length === 0) {
+            window.alert('El carrito está vacío, no se puede comprar');
+            return;
+        }
+
         for (let item of cart) {
             const productFinded = db.find(product => product.id === item.id);
             productFinded.quantity -= item.quantity;
