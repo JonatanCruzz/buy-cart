@@ -796,7 +796,7 @@ section {
     border: none;
     outline: none;
     font-size: 2rem;
-    color: #ffffff;
+    color: var(--text-color);
     cursor: default;
 }
 
