@@ -91,8 +91,7 @@ a {
     cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1565.cur), auto !important;
 }
 
-*
-a {
+* a {
     text-decoration: none;
 }
 
@@ -302,7 +301,7 @@ section {
     /* Alinea los iconos de luna y sol junto con los títulos */
     .nav__menu.show--menu .mode-toggle-button .bx-moon,
     .nav__menu.show--menu .mode-toggle-button .bx-sun {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         margin-left: 15px;
         /* Agrega un pequeño espacio entre los iconos y los títulos */
     }
@@ -344,6 +343,7 @@ section {
 }
 
 .nav__btn i {
+    margin-top: 5px;
     font-size: 1.25rem;
 }
 
@@ -484,7 +484,8 @@ section {
     right: var(--space-1-5);
     width: 45px;
     height: 45px;
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     transform: translateY(-50%);
@@ -496,8 +497,8 @@ section {
 }
 
 .product__btn:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
+    background-color: #49e9d9;
+    color: var(--bg-color-dark);
 }
 
 .product__price {
@@ -512,6 +513,11 @@ section {
 
 .product__title {
     grid-column: span 3;
+}
+
+.section--title {
+    max-width: 1024px;
+    margin-bottom: 2rem;
 }
 
 /* End of Products */
@@ -546,14 +552,15 @@ section {
     width: var(--space-2-5);
     height: var(--space-2-5);
     color: var(--bg-color);
-    background-color: var(--title-color);
+    background-color: var(--primary-color);
     border-radius: 50%;
     font-size: var(--space-1-5);
     transition: background-color .3s ease-in-out;
 }
 
 .footer__link:hover {
-    background-color: var(--primary-color);
+    background-color:#49e9d9;
+    color: var(--bg-color-dark);
 }
 
 .footer__item a {
@@ -771,6 +778,7 @@ section {
 }
 
 .modal__content {
+    position: relative;
     background-color: var(--bg-color);
     border-radius: 5px;
     padding: var(--space-2);
@@ -782,8 +790,8 @@ section {
 
 .modal__close {
     position: absolute;
-    top: var(--space-0-75);
-    right: var(--space-0-75);
+    top: 10px;
+    right: 10px;
     background-color: transparent;
     border: none;
     outline: none;
@@ -794,6 +802,7 @@ section {
 
 .modal__close {
     cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1564.cur), auto !important;
+
 }
 
 .modal__body {
@@ -936,13 +945,13 @@ section {
 }
 
 .dark-mode .footer__link {
-    background-color: var(--title-color-dark);
+    background-color: #49e9d9;
     color: var(--bg-color-dark);
     transition: background-color .3s ease-in-out;
 }
 
 .dark-mode .footer__link:hover {
-    background-color: var(--primary-color-dark);
+    background-color: var(--primary-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -958,13 +967,18 @@ section {
 }
 
 .dark-mode .product__btn {
-    background-color: var(--title-color-dark);
+    background-color: #49e9d9;
     color: var(--bg-color-dark);
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
 .dark-mode .product__btn:hover {
-    background-color: var(--primary-color-dark);
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__image {
+    background-color: hsl(0deg 0% 13.44%);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
