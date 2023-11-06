@@ -1,5 +1,8 @@
+const ls = window.localStorage;
+
 function cart(db, printProducts) {
-    let cart = [];
+    let cart = JSON.parse(ls.getItem('cart')) || [];
+
     //Elementos del DOM
     const productsDOM = document.querySelector(".products__container");
     const notifyDOM = document.querySelector(".notify");
@@ -55,19 +58,29 @@ function cart(db, printProducts) {
         notifyDOM.innerHTML = showItemsCount();
         countDOM.innerHTML = showItemsCount();
         totalDOM.innerHTML = showTotal();
-
+        ls.setItem('cart', JSON.stringify(cart));
     }
 
     function addToCart(id, quantity = 1) {
         const itemFinded = cart.find(item => item.id === id);
+        const product = db.find(product => product.id === id);
 
         if (itemFinded) {
-            itemFinded.quantity += quantity;
+            const totalQuantity = itemFinded.quantity + quantity;
+            if (checkStock(id, totalQuantity)) {
+                itemFinded.quantity = totalQuantity;
+            } else {
+                window.alert('No hay stock suficiente');
+            }
         } else {
-            const item = db.find(item => item.id === id);
-            item.quantity = quantity;
-            cart.push(item);
+            if (checkStock(id, quantity)) {
+                const newItem = { ...product, quantity };
+                cart.push(newItem);
+            } else {
+                window.alert('No hay stock suficiente');
+            }
         }
+
         printCart();
     }
 
@@ -87,6 +100,7 @@ function cart(db, printProducts) {
 
     function deleteFromCart(id) {
         cart = cart.filter(item => item.id !== id);
+
         printCart();
     }
 
@@ -112,6 +126,11 @@ function cart(db, printProducts) {
     }
 
     function checkout() {
+        if (cart.length === 0) {
+            window.alert('El carrito está vacío, no se puede comprar');
+            return;
+        }
+
         for (let item of cart) {
             const productFinded = db.find(product => product.id === item.id);
             productFinded.quantity -= item.quantity;
@@ -121,6 +140,13 @@ function cart(db, printProducts) {
         printCart();
         printProducts();
         window.alert('Gracias por su compra')
+        ls.setItem('products', JSON.stringify(db));
+    }
+
+    function checkStock(id, quantity) {
+        const productFinded = db.find(product => product.id === id);
+
+        return productFinded.quantity >= quantity;
     }
 
     printCart()
@@ -149,6 +175,7 @@ function cart(db, printProducts) {
     checkoutDOM.addEventListener("click", function () {
         checkout();
     });
+
 }
 
 export default cart;

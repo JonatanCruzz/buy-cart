@@ -4,6 +4,9 @@ import showCart from "./components/showCart.js";
 import products from "./components/products.js";
 import getProducts from "./helpers/getProducts.js";
 import cart from "./components/cart.js";
+import modal from "./components/modal.js";
+import darkMode from "./components/darkMode.js"
+
 
 /* UI Elements*/
 
@@ -20,16 +23,13 @@ showCart();
 /* Products*/
 const { db, printProducts } = products(await getProducts());
 
+
 /* Cart */
 cart(db, printProducts);
 
-//TO DO:
-/* 
-1. Entregar la maquetación y la lógica vista en los videos (listo)
-2. Animaciones (listo)
-3. Realizar el loading (listo)
-4. Realizar el darkmode de la pagina (pendiente)
-5. Un modal con información del producto (y funcionalidad) (pendiente)
-6. Validar el stock de los productos (pendiente) -- video 2023-09-07 34:06
-7. Persistencia con localStorage (pendiente)
-*/
+/* Modal */
+modal(db);
+
+/* Dark Mode*/
+darkMode();
+

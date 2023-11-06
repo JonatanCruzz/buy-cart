@@ -72,15 +72,26 @@ textarea {
 }
 
 body {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1570.cur), auto !important;
+    cursor: default;
     background-color: var(--body-color);
     color: var(--text-color);
     font-family: var(--body-font);
     font-size: var(--normal-font);
     font-weight: var(--font-normal);
     line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1569.cur), auto !important;
 }
 
 a {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1565.cur), auto !important;
+}
+
+* a {
     text-decoration: none;
 }
 
@@ -263,7 +274,7 @@ section {
     align-items: center;
 }
 
-.nav__logo :hover{
+.nav__logo :hover {
     animation: rainbow 2.5s linear;
     animation-iteration-count: infinite;
 }
@@ -285,6 +296,14 @@ section {
         background-color: var(--bg-color);
         z-index: var(--z-fixed);
         transition: bottom .3s ease-in-out;
+    }
+
+    /* Alinea los iconos de luna y sol junto con los títulos */
+    .nav__menu.show--menu .mode-toggle-button .bx-moon,
+    .nav__menu.show--menu .mode-toggle-button .bx-sun {
+        margin-bottom: 5px;
+        margin-left: 15px;
+        /* Agrega un pequeño espacio entre los iconos y los títulos */
     }
 }
 
@@ -324,6 +343,7 @@ section {
 }
 
 .nav__btn i {
+    margin-top: 5px;
     font-size: 1.25rem;
 }
 
@@ -464,7 +484,8 @@ section {
     right: var(--space-1-5);
     width: 45px;
     height: 45px;
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     transform: translateY(-50%);
@@ -476,8 +497,8 @@ section {
 }
 
 .product__btn:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
+    background-color: #49e9d9;
+    color: var(--bg-color-dark);
 }
 
 .product__price {
@@ -492,6 +513,11 @@ section {
 
 .product__title {
     grid-column: span 3;
+}
+
+.section--title {
+    max-width: 1024px;
+    margin-bottom: 2rem;
 }
 
 /* End of Products */
@@ -526,19 +552,25 @@ section {
     width: var(--space-2-5);
     height: var(--space-2-5);
     color: var(--bg-color);
-    background-color: var(--title-color);
+    background-color: var(--primary-color);
     border-radius: 50%;
     font-size: var(--space-1-5);
     transition: background-color .3s ease-in-out;
 }
 
 .footer__link:hover {
-    background-color: var(--primary-color);
+    background-color:#49e9d9;
+    color: var(--bg-color-dark);
+}
+
+.footer__item a {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1567.cur), auto !important;
 }
 
 .footer__bottom {
     text-align: center;
 }
+
 /* End of Footer */
 
 /* Cart */
@@ -555,7 +587,7 @@ section {
 }
 
 /* Show cart */
-.show--cart{
+.show--cart {
     right: 0;
 }
 
@@ -585,6 +617,10 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btn--close {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1564.cur), auto !important;
 }
 
 .cart__body {
@@ -649,6 +685,7 @@ section {
     justify-content: center;
     align-items: flex-end;
 }
+
 /* End of Article */
 
 .cart__footer {
@@ -672,15 +709,17 @@ section {
 }
 
 .btn--buy {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1560.cur), auto !important;
     grid-column: span 4;
     background-color: var(--title-color);
     color: var(--bg-color);
     padding: var(--space-1);
 }
+
 /* End of Cart */
 
 /* Configuration format style pc */
-@media (min-width: 768px){
+@media (min-width: 768px) {
     :root {
         --header-height: 75px;
     }
@@ -695,8 +734,7 @@ section {
         align-items: center;
     }
 
-    .nav__menu 
-    .btn--close, 
+    .nav__menu .btn--close,
     .btn--menu {
         display: none;
     }
@@ -715,8 +753,296 @@ section {
 }
 
 @media (min-width:1024px) {
-    .section-title,
+
+    .section--title,
     .container {
         margin: 0 auto;
     }
 }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-fixed);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal__content {
+    position: relative;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    padding: var(--space-2);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: default;
+}
+
+.modal__close {
+    cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1564.cur), auto !important;
+
+}
+
+.modal__body {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.modal__image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--card-color);
+}
+
+.modal__details {
+    flex: 1;
+    padding: var(--space-2);
+}
+
+.modal__title {
+    font-size: var(--medium-font);
+    margin-bottom: var(--space-1);
+}
+
+.modal__price {
+    font-size: var(--normal-font);
+    color: var(--primary-color);
+    margin-bottom: var(--space-1);
+}
+
+.modal__description {
+    font-size: var(--small-font);
+    margin-bottom: var(--space-2);
+}
+
+.modal__btn {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: var(--space-0-75) var(--space-1);
+    border-radius: 5px;
+    font-size: var(--small-font);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.modal__btn:hover {
+    background-color: var(--title-color);
+    color: var(--bg-color);
+}
+
+.product__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product__btn.show-modal {
+    margin-right: 70%;
+}
+
+/* Show modal */
+.show--modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ocultar el boton */
+.nav__btn .bx-sun {
+    display: none;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --primary-color-dark: #49e9d9;
+    --body-color: #121212;
+    --text-color: #ffffff;
+    --title-color-dark: #e6e6e6;
+    --bg-color-dark: #1c1919;
+    --card-color-dark: #333333;
+}
+
+.dark-mode .header {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__logo svg {
+    color: var(--primary-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__menu {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__link {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__buttons .nav__btn {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .products__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.dark-mode .cart__body {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer__top {
+    background-color: var(--bg-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .footer__link {
+    background-color: #49e9d9;
+    color: var(--bg-color-dark);
+    transition: background-color .3s ease-in-out;
+}
+
+.dark-mode .footer__link:hover {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__content {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__btn {
+    background-color: #49e9d9;
+    color: var(--bg-color-dark);
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.dark-mode .product__btn:hover {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .product__image {
+    background-color: hsl(0deg 0% 13.44%);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__btn.mode-toggle-button .bx-sun {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__menu .btn--cart i {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .nav__menu .btn--close {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart__footer {
+    background-color: var(--card-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .cart__btn.btn--close {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .article__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .article--plus,
+.article--minus,
+.remove-from-cart {
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__content {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__title {
+    color: var(--title-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__image {
+    border: 1px solid var(--card-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .modal__price {
+    color: var(--primary-color-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* End of Dark Mode */
