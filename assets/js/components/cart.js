@@ -19,7 +19,7 @@ function cart(db, printProducts) {
             htmlCart += `
                 <div class="cart__empty">
                     <i class="bx bx-cart"></i>
-                    <p class="cart__empty--text">No hay productos en el carrito</p>
+                    <p class="cart__empty--text">There are no products in the cart</p>
                 </div>
             `
             notifyDOM.classList.remove('show--notify');
@@ -70,14 +70,14 @@ function cart(db, printProducts) {
             if (checkStock(id, totalQuantity)) {
                 itemFinded.quantity = totalQuantity;
             } else {
-                window.alert('No hay stock suficiente');
+                window.alert('Not enough stock');
             }
         } else {
             if (checkStock(id, quantity)) {
                 const newItem = { ...product, quantity };
                 cart.push(newItem);
             } else {
-                window.alert('No hay stock suficiente');
+                window.alert('Not enough stock');
             }
         }
 
@@ -127,7 +127,7 @@ function cart(db, printProducts) {
 
     function checkout() {
         if (cart.length === 0) {
-            window.alert('El carrito está vacío, no se puede comprar');
+            window.alert(`Cart is empty, can't buy`);
             return;
         }
 
@@ -139,7 +139,7 @@ function cart(db, printProducts) {
         cart = [];
         printCart();
         printProducts();
-        window.alert('Gracias por su compra')
+        window.alert('Thank you for your purchase')
         ls.setItem('products', JSON.stringify(db));
     }
 

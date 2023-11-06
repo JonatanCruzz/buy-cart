@@ -17,7 +17,7 @@ function products(products) {
                     <i class='bx bx-cart-add'></i>
                 </button>
                 <span class="product__price">$${product.price}</span>
-                <span class="product__stock">Disponibles: ${product.quantity}</span>
+                <span class="product__stock">Available: ${product.quantity}</span>
                 <h3 class="product__title">${product.name}</h3>
                 <button type="button" class="product__btn show-modal" data-id="${product.id}">
                     <i class='bx bx-info-circle'></i>

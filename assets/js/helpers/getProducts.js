@@ -1,114 +1,114 @@
 async function getProducts() {
     const ls = window.localStorage;
 
-    const products =  JSON.parse(ls.getItem('products')) || [
+    const products = JSON.parse(ls.getItem('products')) || [
         {
             id: 1,
-            name: "Camiseta de manga corta con cuello redondo",
+            name: "Short sleeve t-shirt with round neck",
             price: 10,
             image: "/assets/img/product1.png",
             category: "shirt",
             quantity: 5,
-            description: "Esta camiseta básica presenta un corte regular y un cuello redondo clásico. Es ideal para el uso diario y se puede combinar con una amplia variedad de looks."
+            description: "This basic tee features a regular fit and classic crew neck. It's ideal for everyday wear and can be paired with a wide variety of looks."
         },
         {
             id: 2,
-            name: "Camiseta de manga larga con estampado gráfico",
+            name: "Long sleeve t-shirt with graphic print",
             price: 15,
             image: "/assets/img/product2.png",
             category: "shirt",
             quantity: 3,
-            description: "Perfecta para un look casual, esta camiseta de manga larga presenta un estampado gráfico llamativo en el pecho. Su ajuste regular y suave tejido de algodón la hacen cómoda y fácil de usar."
+            description: "Perfect for a casual look, this long sleeve tee features an eye-catching graphic print on the chest. Its regular fit and soft cotton fabric make it comfortable and easy to wear."
         },
         {
             id: 3,
-            name: "Camiseta con detalle de encaje",
+            name: "T-shirt with lace detail",
             price: 12,
             image: "/assets/img/product3.png",
             category: "shirt",
             quantity: 2,
-            description: "Esta camiseta presenta un detalle de encaje en el escote y mangas. Su ajuste regular y tela suave la hacen cómoda y fácil de usar para cualquier ocasión."
+            description: "This top features a lace detail at the neckline and sleeves. Its regular fit and soft fabric make it comfortable and easy to wear for any occasion."
         },
         {
             id: 4,
-            name: "Camiseta de tirantes con espalda cruzada",
+            name: "Cross back tank top",
             price: 8,
             image: "/assets/img/product4.png",
             category: "shirt",
             quantity: 10,
-            description: "Con un toque de estilo femenino, esta camiseta de tirantes presenta una espalda cruzada con detalle de encaje. El ajuste es regular y la tela suave y cómoda."
+            description: "With a touch of feminine flair, this tank top features a crisscross back with lace-up detail. The fit is regular and the fabric soft and comfortable."
         },
         {
             id: 5,
-            name: "Camiseta con hombros descubiertos",
+            name: "Off shoulder t-shirt",
             price: 12,
             image: "/assets/img/product5.png",
             category: "shirt",
             quantity: 6,
-            description: "Con un toque femenino y coqueto, esta camiseta presenta hombros descubiertos y un ajuste regular. Su tela suave y transpirable la hace ideal para los días calurosos."
+            description: "With a flirty, feminine touch, this top features bare shoulders and a regular fit. Its soft, breathable fabric makes it ideal for hot days."
         },
         {
             id: 6,
-            name: "Camiseta con cuello alto y manga larga",
+            name: "Long sleeve turtleneck t-shirt",
             price: 18,
             image: "/assets/img/product6.png",
             category: "shirt",
             quantity: 4,
-            description: "Esta camiseta de manga larga presenta un cuello alto y ajuste regular. Es ideal para un look elegante y cómodo."
+            description: "This long sleeve tee features a high neck and regular fit. It's ideal for a stylish and comfortable look."
         },
         {
             id: 7,
-            name: "Camiseta con cuello en V y manga corta",
+            name: "V-neck short sleeve t-shirt",
             price: 9,
             image: "/assets/img/product7.png",
             category: "shirt",
             quantity: 8,
-            description: "Esta camiseta clásica presenta un corte regular, cuello en V y mangas cortas. Es fácil de usar y combinar con diferentes looks."
+            description: "This classic tee features a regular fit, V-neck and short sleeves. It's easy to wear and combine with different looks."
         },
         {
             id: 8,
-            name: "Hoddie con estampado de leopardo",
+            name: "Leopard print Hoddie",
             price: 20,
             image: "/assets/img/product8.png",
             category: "hoddie",
             quantity: 8,
-            description: "Este hoddie presenta un estampado de leopardo y está hecho de una mezcla suave de algodón y poliéster. Es ideal para un look casual y cómodo."
+            description: "This hoddie features a leopard print and is made of a soft cotton/poly blend. It's ideal for a casual and comfortable look."
         },
         {
             id: 9,
-            name: "Hoddie con cremallera",
+            name: "Hoddie with zipper",
             price: 25,
             image: "/assets/img/product9.png",
             category: "hoddie",
             quantity: 10,
-            description: "Este hoddie presenta una cremallera frontal y bolsillos laterales. Está hecho de una mezcla de algodón y poliéster para mayor comodidad y durabilidad."
+            description: "This hoddie features a front zipper and side pockets. It's made of a cotton/polyester blend for comfort and durability."
         },
         {
             id: 10,
-            name: "Hoddie con capucha y cordón ajustable",
+            name: "Hoddie with hood and drawstring",
             price: 30,
             image: "/assets/img/product10.png",
             category: "hoddie",
             quantity: 6,
-            description: "Este hoddie presenta una capucha con cordón ajustable y un corte holgado para mayor comodidad. Está hecho de una mezcla suave de algodón y poliéster."
+            description: "This hoddie features an adjustable drawstring hood and a loose fit for comfort. It's made from a soft blend of cotton and polyester."
         },
         {
             id: 11,
-            name: "Hoddie con estampado de marca",
+            name: "Hoddie with brand print",
             price: 35,
             image: "/assets/img/product11.png",
             category: "hoddie",
             quantity: 4,
-            description: "Este hoddie presenta un estampado de marca en la parte delantera y está hecho de una mezcla suave de algodón y poliéster. Es ideal para un look casual y moderno."
+            description: "This hoddie features a branded print on the front and is made from a soft cotton/poly blend. It's ideal for a casual, modern look."
         },
         {
             id: 12,
-            name: "Hoddie con cierre de botones",
+            name: "Hoddie with button closure",
             price: 40,
             image: "/assets/img/product12.png",
             category: "hoddie",
             quantity: 3,
-            description: "Este hoddie presenta un cierre de botones en la parte delantera y bolsillos laterales. Está hecho de una mezcla suave de algodón y poliéster para mayor comodidad y durabilidad."
+            description: "This hoddie features a front button closure and side pockets. It's made of a soft cotton/poly blend for comfort and durability."
         },
     ];
 
